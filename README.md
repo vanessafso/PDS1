@@ -8,12 +8,16 @@
 
 
 
+
+
 #### Entrega 2 
 
 ###  * Requisitos (30pts)
 		- Especificação dos Casos de Uso
 		- Modelo de Domínio (Diagrama de Classes)
 		- Data final - 08/10/18
+
+
 
 
 
@@ -27,7 +31,9 @@
 
 
 
-#### 4 - Entrega
+
+
+####  Entrega 4
 
 ###  * Implementação (10pts) e Implantação (5pts)
 		- Protótipos
