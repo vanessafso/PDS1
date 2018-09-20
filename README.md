@@ -18,6 +18,22 @@
 		- Data final - 08/10/18
 
 
+#### Divisão dos Casos de Uso
+
+- \~~Cadastrar Usuário – Criar login\~~ Vanessa
+- Logar na aplicação
+- Cadastrar Preferências – Perfil de Viajante
+- \~~Resetar senha\~~  Vanessa
+- \~~Realizar busca – Procurar Destino\~~ Ja entrgue
+- Salvar Busca
+- Consultar Buscas Salvas
+- Excluir Busca Salva
+- Cadastrar Destino
+- Dar Feedback
+- Buscar destino para feedback
+- Sugerir destinos
+- Moderar
+
 
 
 
