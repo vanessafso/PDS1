@@ -20,11 +20,11 @@
 
 #### Divisão dos Casos de Uso
 
-- \~~Cadastrar Usuário – Criar login\~~ Vanessa
+- \~~Cadastrar Usuário – Criar login\~~  `Vanessa`
 - Logar na aplicação
 - Cadastrar Preferências – Perfil de Viajante
-- \~~Resetar senha\~~  Vanessa
-- \~~Realizar busca – Procurar Destino\~~ Ja entrgue
+- \~~Resetar senha\~~   `Vanessa`
+- \~~Realizar busca – Procurar Destino\~~  `Ja entregue`
 - Salvar Busca
 - Consultar Buscas Salvas
 - Excluir Busca Salva
