@@ -21,7 +21,7 @@
 #### Divisão dos Casos de Uso
 
 - \~~Cadastrar Usuário – Criar login\~~  `Vanessa`
-- Logar na aplicação
+- \~~Logar na aplicação\~~  `Vanessa`
 - \~~Cadastrar Preferências – Perfil de Viajante\~~ `Daniel`
 - \~~Resetar senha\~~   `Vanessa`
 - \~~Realizar busca – Procurar Destino\~~  `Ja entregue`
