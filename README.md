@@ -22,17 +22,17 @@
 
 - \~~Cadastrar Usuário – Criar login\~~  `Vanessa`
 - Logar na aplicação
-- Cadastrar Preferências – Perfil de Viajante
+- \~~Cadastrar Preferências – Perfil de Viajante\~~ `Daniel`
 - \~~Resetar senha\~~   `Vanessa`
 - \~~Realizar busca – Procurar Destino\~~  `Ja entregue`
 - Salvar Busca
 - Consultar Buscas Salvas
 - Excluir Busca Salva
 - Cadastrar Destino
-- Dar Feedback
+- \~~Dar Feedback\~~ `Daniel`
 - Buscar destino para feedback
 - Sugerir destinos
-- Moderar
+- \~~Moderar\~~ `Daniel`
 
 
 
