@@ -28,10 +28,10 @@
 - \~~Salvar Busca\~~  `Vinicius`
 - \~~Consultar Buscas Salvas\~~  `Vinicius`
 - \~~Excluir Busca Salva\~~  `Vinicius`
-- Cadastrar Destino
+- \~~Cadastrar Destino\~~  `Gabriel`
 - \~~Dar Feedback\~~ `Daniel`
-- Buscar destino para feedback
-- Sugerir destinos
+- \~~Buscar destino para feedback\~~  `Gabriel`
+- \~~Sugerir destinos\~~  `Gabriel`
 - \~~Moderar\~~ `Daniel`
 
 
