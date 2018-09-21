@@ -25,13 +25,13 @@
 - \~~Cadastrar Preferências – Perfil de Viajante\~~ `Daniel`
 - \~~Resetar senha\~~   `Vanessa`
 - \~~Realizar busca – Procurar Destino\~~  `Ja entregue`
-- Salvar Busca
-- Consultar Buscas Salvas
-- Excluir Busca Salva
-- Cadastrar Destino
+- \~~Salvar Busca\~~  `Vinicius`
+- \~~Consultar Buscas Salvas\~~  `Vinicius`
+- \~~Excluir Busca Salva\~~  `Vinicius`
+- \~~Cadastrar Destino\~~  `Gabriel`
 - \~~Dar Feedback\~~ `Daniel`
-- Buscar destino para feedback
-- Sugerir destinos
+- \~~Buscar destino para feedback\~~  `Gabriel`
+- \~~Sugerir destinos\~~  `Gabriel`
 - \~~Moderar\~~ `Daniel`
 
 
