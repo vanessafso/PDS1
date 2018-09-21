@@ -25,9 +25,9 @@
 - \~~Cadastrar Preferências – Perfil de Viajante\~~ `Daniel`
 - \~~Resetar senha\~~   `Vanessa`
 - \~~Realizar busca – Procurar Destino\~~  `Ja entregue`
-- Salvar Busca
-- Consultar Buscas Salvas
-- Excluir Busca Salva
+- \~~Salvar Busca\~~  `Vinicius`
+- \~~Consultar Buscas Salvas\~~  `Vinicius`
+- \~~Excluir Busca Salva\~~  `Vinicius`
 - Cadastrar Destino
 - \~~Dar Feedback\~~ `Daniel`
 - Buscar destino para feedback
