@@ -1,0 +1,588 @@
+RELATÓRIO DAS OPERAÇÕES REALIZADAS COM O ORION CONTEXT BROKER:
+
+
+GERENCIAMENTO DE CONTEXTO:
+
+Iniciando o serviço:
+[root@localhost flavio]# /etc/init.d/contextBroker start
+Starting...
+contextBroker (pid  2124) is running...
+
+
+CRIANDO A ENTIDADE OFERTA1:
+(curl localhost:1026/v1/updateContext -s -S --header 'Content-Type: application/json' --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+{
+    "contextElements": [
+        {
+            "type": "oferta",
+            "isPattern": "false",
+            "id": "oferta1",
+            "attributes": [
+                {
+                    "name": "clima",
+                    "type": "string",
+                    "value": "quente"
+                },
+                {
+                    "name": "perfil",
+                    "type": "string",
+                    "value": "aventureiro"
+                }
+            ]
+        }
+    ],
+    "updateAction": "APPEND"
+} 
+EOF
+
+RETORNO DO SISTEMA:
+{
+    "contextResponses": [
+        {
+            "contextElement": {
+                "attributes": [
+                    {
+                        "name": "clima", 
+                        "type": "string", 
+                        "value": ""
+                    }, 
+                    {
+                        "name": "perfil", 
+                        "type": "string", 
+                        "value": ""
+                    }
+                ], 
+                "id": "oferta1", 
+                "isPattern": "false", 
+                "type": "oferta"
+            }, 
+            "statusCode": {
+                "code": "200", 
+                "reasonPhrase": "OK"
+            }
+        }
+    ]
+}
+
+
+
+CRIANDO A ENTIDADE OFERTA2
+(curl localhost:1026/v1/updateContext -s -S --header 'Content-Type: application/json' --header 'Accept: application/json' -d @- | python -mjson.tool ) <<EOF
+{
+    "contextElements": [
+        {
+            "type": "oferta",
+            "isPattern": "false",
+            "id": "oferta2",
+            "attributes": [
+                {
+                    "name": "clima",
+                    "type": "string",
+                    "value": "frio"
+                },
+                {
+                    "name": "perfil",
+                    "type": "string",
+                    "value": "religioso"
+                }
+            ]
+        }
+    ],
+    "updateAction": "APPEND"
+} 
+EOF
+
+
+RETORNO DO SISTEMA:
+{
+    "contextResponses": [
+        {
+            "contextElement": {
+                "attributes": [
+                    {
+                        "name": "clima", 
+                        "type": "string", 
+                        "value": ""
+                    }, 
+                    {
+                        "name": "perfil", 
+                        "type": "string", 
+                        "value": ""
+                    }
+                ], 
+                "id": "oferta2", 
+                "isPattern": "false", 
+                "type": "oferta"
+            }, 
+            "statusCode": {
+                "code": "200", 
+                "reasonPhrase": "OK"
+            }
+        }
+    ]
+}
+
+
+
+
+CONSULTADO AS INFORMAÇÕES DA ENTIDADE oferta1:
+(curl localhost:1026/v1/queryContext -s -S --header 'Content-Type: application/json' --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+{
+    "entities": [
+        {
+            "type": "oferta",
+            "isPattern": "false",
+            "id": "oferta1"
+        }
+    ]
+} 
+EOF
+
+RETORNO DO SISTEMA:
+{
+    "contextResponses": [
+        {
+            "contextElement": {
+                "attributes": [
+                    {
+                        "name": "clima", 
+                        "type": "string", 
+                        "value": "quente"
+                    }, 
+                    {
+                        "name": "perfil", 
+                        "type": "string", 
+                        "value": "aventureiro"
+                    }
+                ], 
+                "id": "oferta1", 
+                "isPattern": "false", 
+                "type": "oferta"
+            }, 
+            "statusCode": {
+                "code": "200", 
+                "reasonPhrase": "OK"
+            }
+        }
+    ]
+}
+
+
+
+CONSULTANDO AS INFORMAÇÕES DA ENTIDADE oferta1, SOMENTE ATRIBUTO "perfil":
+(curl localhost:1026/v1/queryContext -s -S --header 'Content-Type: application/json' --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+{
+    "entities": [
+        {
+            "type": "oferta",
+            "isPattern": "false",
+            "id": "oferta1"
+        }
+    ],
+    "attributes": [
+        "perfil"
+    ]
+} 
+EOF
+
+RETORNO DO SISTEMA:
+{
+    "contextResponses": [
+        {
+            "contextElement": {
+                "attributes": [
+                    {
+                        "name": "perfil", 
+                        "type": "string", 
+                        "value": "aventureiro"
+                    }
+                ], 
+                "id": "oferta1", 
+                "isPattern": "false", 
+                "type": "oferta"
+            }, 
+            "statusCode": {
+                "code": "200", 
+                "reasonPhrase": "OK"
+            }
+        }
+    ]
+}
+
+
+
+ATUALIZANDO OS ELEMENTOS DO CONTEXTO:
+ATUALIZAR OS VALORES DA ENTIDADE "oferta1", ATRIBUTOS "clima" (DE 'quente' PARA 'neve') E "perfil" (DE 'aventureiro' PARA 'relax')
+(curl localhost:1026/v1/updateContext -s -S --header 'Content-Type: application/json' --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+{
+    "contextElements": [
+        {
+            "type": "oferta",
+            "isPattern": "false",
+            "id": "oferta1",
+            "attributes": [
+                {
+                    "name": "clima",
+                    "type": "string",
+                    "value": "neve"
+                },
+                {
+                    "name": "perfil",
+                    "type": "string",
+                    "value": "relax"
+                }
+            ]
+        }
+    ],
+    "updateAction": "UPDATE"
+} 
+EOF
+
+ 
+RESPOSTA DO SISTEMA:
+{
+    "contextResponses": [
+        {
+            "contextElement": {
+                "attributes": [
+                    {
+                        "name": "clima", 
+                        "type": "string", 
+                        "value": ""
+                    }, 
+                    {
+                        "name": "perfil", 
+                        "type": "string", 
+                        "value": ""
+                    }
+                ], 
+                "id": "oferta1", 
+                "isPattern": "false", 
+                "type": "oferta"
+            }, 
+            "statusCode": {
+                "code": "200", 
+                "reasonPhrase": "OK"
+            }
+        }
+    ]
+}
+
+
+
+VERIFICANDO A ATUALIZAÇÃO:
+(curl localhost:1026/v1/queryContext -s -S --header 'Content-Type: application/json' --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+{
+    "entities": [
+        {
+            "type": "oferta",
+            "isPattern": "false",
+            "id": "oferta1"
+        }
+    ]
+} 
+EOF
+
+
+RESPOSTA DO SISTEMA:
+{
+    "contextResponses": [
+        {
+            "contextElement": {
+                "attributes": [
+                    {
+                        "name": "clima", 
+                        "type": "string", 
+                        "value": "neve"
+                    }, 
+                    {
+                        "name": "perfil", 
+                        "type": "string", 
+                        "value": "relax"
+                    }
+                ], 
+                "id": "oferta1", 
+                "isPattern": "false", 
+                "type": "oferta"
+            }, 
+            "statusCode": {
+                "code": "200", 
+                "reasonPhrase": "OK"
+            }
+        }
+    ]
+}
+
+
+
+ASSINATURA DE CONTEXTO
+(curl localhost:1026/v1/subscribeContext -s -S --header 'Content-Type: application/json' --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+{
+    "entities": [
+        {
+            "type": "oferta",
+            "isPattern": "false",
+            "id": "oferta1"
+        }
+    ],
+    "attributes": [
+        "clima"
+    ],
+    "reference": "http://localhost:1028/accumulate",
+    "duration": "P1M",
+    "notifyConditions": [
+        {
+            "type": "ONCHANGE",
+            "condValues": [
+                "clima"
+            ]
+        }
+    ],
+    "throttling": "PT5S"
+}
+EOF
+
+
+RESPOSTA DO SISTEMA:
+{
+    "subscribeResponse": {
+        "duration": "P1M", 
+        "subscriptionId": "5bbf857b985da3b017f7a437", 
+        "throttling": "PT5S"
+    }
+}
+
+
+
+ATUALIZANDO A ASSINATURA
+(curl localhost:1026/v1/updateContextSubscription -s -S --header 'Content-Type: application/json' --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+{
+     "subscriptionId": "5bbf857b985da3b017f7a437",
+     "duration": "P2M"
+}
+EOF
+
+
+RESPOSTA DO SISTEMA:
+{
+    "subscribeResponse": {
+        "duration": "P2M", 
+        "subscriptionId": "5bbf857b985da3b017f7a437"
+    }
+}
+
+
+
+CANCELAR ASSINATURA:
+(curl localhost:1026/v1/unsubscribeContext -s -S --header 'Content-Type: application/json' --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+{
+     "subscriptionId": "5bbf857b985da3b017f7a437"
+}
+EOF
+
+
+RESPOSTA DO SISTEMA:
+{
+    "statusCode": {
+        "code": "200", 
+        "reasonPhrase": "OK"
+    }, 
+    "subscriptionId": "5bbf857b985da3b017f7a437"
+}
+
+
+
+
+
+GERENCIAMENTO DE DISPONIBILIDADE DE CONTEXTO
+
+CONTEXT BROKER REINICIADO:
+/etc/init.d/contextBroker restart
+Stopping contextBroker...                                  [  OK  ]
+Starting contextBroker...                                  [  OK  ]
+
+
+REGISTRO DE CONTEXTO:
+(curl localhost:1026/v1/registry/registerContext -s -S --header 'Content-Type: application/json' --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+
+{
+    "contextRegistrations": [
+        {
+            "entities": [
+                {
+                    "type": "oferta",
+                    "isPattern": "false",
+                    "id": "oferta1"
+                },
+                {
+                    "type": "oferta",
+                    "isPattern": "false",
+                    "id": "oferta2"
+                }
+            ],
+            "attributes": [
+                {
+                    "name": "clima",
+                    "type": "string",
+                    "isDomain": "false"
+                },
+                {
+                    "name": "perfil",
+                    "type": "string",
+                    "isDomain": "false"
+                }
+            ],
+            "providingApplication": "http://mysensors.com/Rooms"
+        }
+    ],
+    "duration": "P1M"
+}
+EOF
+
+RESPOSTA DO SISTEMA:
+{
+    "duration": "P1M", 
+    "registrationId": "5bbf8972985da37a13db7017"
+}
+
+
+
+ACESSANDO A INFORMAÇÃO:
+(curl localhost:1026/v1/registry/discoverContextAvailability -s -S --header  'Content-Type: application/json' --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+{
+    "entities": [
+        {
+            "type": "oferta",
+            "isPattern": "false",
+            "id": "oferta1"
+        }
+    ]
+} 
+EOF
+
+
+RESPOSTA DO SISTEMA:
+{
+    "contextRegistrationResponses": [
+        {
+            "contextRegistration": {
+                "attributes": [
+                    {
+                        "isDomain": "false", 
+                        "name": "clima", 
+                        "type": "string"
+                    }, 
+                    {
+                        "isDomain": "false", 
+                        "name": "perfil", 
+                        "type": "string"
+                    }
+                ], 
+                "entities": [
+                    {
+                        "id": "oferta1", 
+                        "isPattern": "false", 
+                        "type": "oferta"
+                    }
+                ], 
+                "providingApplication": "http://mysensors.com/Rooms"
+            }
+        }, 
+        {
+            "contextRegistration": {
+                "attributes": [
+                    {
+                        "isDomain": "false", 
+                        "name": "clima", 
+                        "type": "string"
+                    }, 
+                    {
+                        "isDomain": "false", 
+                        "name": "perfil", 
+                        "type": "string"
+                    }
+                ], 
+                "entities": [
+                    {
+                        "id": "oferta1", 
+                        "isPattern": "false", 
+                        "type": "oferta"
+                    }
+                ], 
+                "providingApplication": "http://mysensors.com/Rooms"
+            }
+        }
+    ]
+}
+
+
+ASSINATURA DE DISPONIBILIDADE DE CONTEXTO:
+(curl localhost:1026/v1/registry/subscribeContextAvailability -s -S --header 'Content-Type: application/json' --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+{
+    "entities": [
+        {
+            "type": "oferta",
+            "isPattern": "true",
+            "id": ".*"
+        }
+    ],
+    "attributes": [
+        "clima"
+    ],
+    "reference": "http://localhost:1028/accumulate",
+    "duration": "P1M"
+}
+EOF
+
+
+RESPOSTA DO SISTEMA:
+{
+    "duration": "P1M", 
+    "subscriptionId": "5bbf8f74985da37a13db701b"
+}
+
+
+REGISTRANDO OS CONTEXTOS (oferta1 E oferta2):
+
+
+
+
+ATUALIZANDO A ASSINATURA DE DISPONIBILIDADE DE CONTEXTO (ALTERANDO A DURAÇÃO):
+(curl localhost:1026/v1/registry/updateContextAvailabilitySubscription -s -S --header 'Content-Type: application/json' --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+{
+    "entities": [
+        {
+            "type": "oferta",
+            "isPattern": "true",
+            "id": ".*"
+        }
+    ],
+    "duration": "P3M",
+    "subscriptionId": "5bbf8f74985da37a13db701b"
+}
+EOF    
+
+
+RESPOSTA DO SISTEMA:
+{
+    "duration": "P3M", 
+    "subscriptionId": "5bbf8f74985da37a13db701b"
+}
+
+
+CANCELAR A ASSINATURA:
+(curl localhost:1026/v1/registry/unsubscribeContextAvailability -s -S --header 'Content-Type: application/json' --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+{
+    "subscriptionId": "5bbf8f74985da37a13db701b"
+}
+EOF
+
+
+RESPOSTA DO SISTEMA:
+{
+    "statusCode": {
+        "code": "200", 
+        "reasonPhrase": "OK"
+    }, 
+    "subscriptionId": "5bbf8f74985da37a13db701b"
+}
