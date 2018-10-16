@@ -19,14 +19,24 @@ CRIANDO A ENTIDADE OFERTA1:
             "id": "oferta1",
             "attributes": [
                 {
-                    "name": "clima",
+                    "name": "Estabelecimento",
                     "type": "string",
-                    "value": "quente"
+                    "value": "Restaurante"
                 },
                 {
-                    "name": "perfil",
+                    "name": "Cidade",
                     "type": "string",
-                    "value": "aventureiro"
+                    "value": "Rio de Janeiro"
+                },
+                {
+                    "name": "Descrição",
+                    "type": "string",
+                    "value": "Reserva de mesa"
+                },
+                {
+                    "name": "Valor",
+                    "type": "float",
+                    "value": "150.00"
                 }
             ]
         }
@@ -42,15 +52,25 @@ RETORNO DO SISTEMA:
             "contextElement": {
                 "attributes": [
                     {
-                        "name": "clima", 
-                        "type": "string", 
-                        "value": ""
-                    }, 
-                    {
-                        "name": "perfil", 
-                        "type": "string", 
-                        "value": ""
-                    }
+                    	"name": "Estabelecimento",
+                    	"type": "string",
+                    	"value": ""
+                	},
+                	{
+                    	"name": "Cidade",
+                    	"type": "string",
+                    	"value": ""
+                	},
+                	{
+                    	"name": "Descrição",
+                    	"type": "string",
+                    	"value": ""
+                	},
+                	{
+                    	"name": "Valor",
+                    	"type": "float",
+                    	"value": ""
+                	}
                 ], 
                 "id": "oferta1", 
                 "isPattern": "false", 
@@ -76,14 +96,24 @@ CRIANDO A ENTIDADE OFERTA2
             "id": "oferta2",
             "attributes": [
                 {
-                    "name": "clima",
+                    "name": "Estabelecimento",
                     "type": "string",
-                    "value": "frio"
+                    "value": "4 Club"
                 },
                 {
-                    "name": "perfil",
+                    "name": "Cidade",
                     "type": "string",
-                    "value": "religioso"
+                    "value": "Las Vegas"
+                },
+                {
+                    "name": "Descrição",
+                    "type": "string",
+                    "value": "Entrada no clube mais 50 fichas de poker mais 2 bebidas"
+                },
+                {
+                    "name": "Valor",
+                    "type": "float",
+                    "value": "699.00"
                 }
             ]
         }
@@ -99,16 +129,26 @@ RETORNO DO SISTEMA:
         {
             "contextElement": {
                 "attributes": [
-                    {
-                        "name": "clima", 
-                        "type": "string", 
-                        "value": ""
-                    }, 
-                    {
-                        "name": "perfil", 
-                        "type": "string", 
-                        "value": ""
-                    }
+                	{
+                    	"name": "Estabelecimento",
+                    	"type": "string",
+                    	"value": ""
+                	},
+                	{
+                    	"name": "Cidade",
+                    	"type": "string",
+                    	"value": ""
+                	},
+                	{
+                    	"name": "Descrição",
+                    	"type": "string",
+                    	"value": ""
+                	},
+                	{
+                    	"name": "Valor",
+                    	"type": "float",
+                    	"value": ""
+                	}
                 ], 
                 "id": "oferta2", 
                 "isPattern": "false", 
@@ -144,16 +184,26 @@ RETORNO DO SISTEMA:
         {
             "contextElement": {
                 "attributes": [
-                    {
-                        "name": "clima", 
-                        "type": "string", 
-                        "value": "quente"
-                    }, 
-                    {
-                        "name": "perfil", 
-                        "type": "string", 
-                        "value": "aventureiro"
-                    }
+                	{
+                    	"name": "Estabelecimento",
+                    	"type": "string",
+                    	"value": "Restaurante"
+                	},
+                	{
+                    	"name": "Cidade",
+                    	"type": "string",
+                    	"value": "Rio de Janeiro"
+                	},
+                	{
+                    	"name": "Descrição",
+                    	"type": "string",
+                    	"value": "Reserva de mesa"
+                	},
+                	{
+                    	"name": "Valor",
+                    	"type": "float",
+                    	"value": "150.00"
+                	}
                 ], 
                 "id": "oferta1", 
                 "isPattern": "false", 
@@ -169,7 +219,7 @@ RETORNO DO SISTEMA:
 
 
 
-CONSULTANDO AS INFORMAÇÕES DA ENTIDADE oferta1, SOMENTE ATRIBUTO "perfil":
+CONSULTANDO AS INFORMAÇÕES DA ENTIDADE oferta1, SOMENTE ATRIBUTO "Cidade":
 (curl localhost:1026/v1/queryContext -s -S --header 'Content-Type: application/json' --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
 {
     "entities": [
@@ -180,7 +230,7 @@ CONSULTANDO AS INFORMAÇÕES DA ENTIDADE oferta1, SOMENTE ATRIBUTO "perfil":
         }
     ],
     "attributes": [
-        "perfil"
+        "Cidade"
     ]
 } 
 EOF
@@ -192,9 +242,9 @@ RETORNO DO SISTEMA:
             "contextElement": {
                 "attributes": [
                     {
-                        "name": "perfil", 
+                        "name": "Cidade", 
                         "type": "string", 
-                        "value": "aventureiro"
+                        "value": "Rio de Janeiro"
                     }
                 ], 
                 "id": "oferta1", 
@@ -212,7 +262,7 @@ RETORNO DO SISTEMA:
 
 
 ATUALIZANDO OS ELEMENTOS DO CONTEXTO:
-ATUALIZAR OS VALORES DA ENTIDADE "oferta1", ATRIBUTOS "clima" (DE 'quente' PARA 'neve') E "perfil" (DE 'aventureiro' PARA 'relax')
+ATUALIZAR OS VALORES DA ENTIDADE "oferta1", ATRIBUTOS "Estabelecimento" (DE 'Restaurante' PARA 'Bar') "Cidade" (DE 'Rio de Janeiro' PARA 'São Paulo') "Descrição" (DE 'Reserva de mesa' PARA 'Reserva de mesa') "Valor" (DE '150.00' PARA '15.00')
 (curl localhost:1026/v1/updateContext -s -S --header 'Content-Type: application/json' --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
 {
     "contextElements": [
@@ -222,14 +272,24 @@ ATUALIZAR OS VALORES DA ENTIDADE "oferta1", ATRIBUTOS "clima" (DE 'quente' PARA 
             "id": "oferta1",
             "attributes": [
                 {
-                    "name": "clima",
+                    "name": "Estabelecimento",
                     "type": "string",
-                    "value": "neve"
+                    "value": "Bar"
                 },
                 {
-                    "name": "perfil",
+                    "name": "Cidade",
                     "type": "string",
-                    "value": "relax"
+                    "value": "São Paulo"
+                },
+                {
+                    "name": "Descrição",
+                    "type": "string",
+                    "value": "Reserva de mesa"
+                },
+                {
+                    "name": "Valor",
+                    "type": "float",
+                    "value": "15.00"
                 }
             ]
         }
@@ -246,13 +306,23 @@ RESPOSTA DO SISTEMA:
             "contextElement": {
                 "attributes": [
                     {
-                        "name": "clima", 
+                        "name": "Estabelecimento", 
                         "type": "string", 
                         "value": ""
                     }, 
                     {
-                        "name": "perfil", 
+                        "name": "Cidade", 
                         "type": "string", 
+                        "value": ""
+                    }
+                    {
+                        "name": "Descrição", 
+                        "type": "string", 
+                        "value": ""
+                    }, 
+                    {
+                        "name": "Valor", 
+                        "type": "float", 
                         "value": ""
                     }
                 ], 
@@ -290,16 +360,26 @@ RESPOSTA DO SISTEMA:
         {
             "contextElement": {
                 "attributes": [
-                    {
-                        "name": "clima", 
-                        "type": "string", 
-                        "value": "neve"
-                    }, 
-                    {
-                        "name": "perfil", 
-                        "type": "string", 
-                        "value": "relax"
-                    }
+                	{
+                    	"name": "Estabelecimento",
+                    	"type": "string",
+                    	"value": "bar"
+                	},
+                	{
+                    	"name": "Cidade",
+                    	"type": "string",
+                    	"value": "São Paulo"
+                	},
+                	{
+                    	"name": "Descrição",
+                    	"type": "string",
+                    	"value": "Reserva de mesa"
+                	},
+                	{
+                    	"name": "Valor",
+                    	"type": "float",
+                    	"value": "15.00"
+                	}
                 ], 
                 "id": "oferta1", 
                 "isPattern": "false", 
@@ -326,7 +406,7 @@ ASSINATURA DE CONTEXTO
         }
     ],
     "attributes": [
-        "clima"
+        "Estabelecimento"
     ],
     "reference": "http://localhost:1028/accumulate",
     "duration": "P1M",
@@ -334,7 +414,7 @@ ASSINATURA DE CONTEXTO
         {
             "type": "ONCHANGE",
             "condValues": [
-                "clima"
+                "Estabelecimento"
             ]
         }
     ],
@@ -422,14 +502,24 @@ REGISTRO DE CONTEXTO:
             ],
             "attributes": [
                 {
-                    "name": "clima",
+                    "name": "Estabelecimento",
                     "type": "string",
-                    "isDomain": "false"
+                    "value": "bar"
                 },
                 {
-                    "name": "perfil",
+                    "name": "Cidade",
                     "type": "string",
-                    "isDomain": "false"
+                    "value": "São paulo"
+                },
+                {
+                    "name": "Descrição",
+                    "type": "string",
+                    "value": "Reserva de mesa"
+                },
+                {
+                    "name": "Valor",
+                    "type": "float",
+                    "value": "15.00"
                 }
             ],
             "providingApplication": "http://mysensors.com/Rooms"
@@ -469,13 +559,23 @@ RESPOSTA DO SISTEMA:
                 "attributes": [
                     {
                         "isDomain": "false", 
-                        "name": "clima", 
+                        "name": "Estabelecimento", 
                         "type": "string"
                     }, 
                     {
                         "isDomain": "false", 
-                        "name": "perfil", 
+                        "name": "Cidade", 
                         "type": "string"
+                    }, 
+                    {
+                        "isDomain": "false", 
+                        "name": "Descrição", 
+                        "type": "string"
+                    }, 
+                    {
+                        "isDomain": "false", 
+                        "name": "Valor", 
+                        "type": "float"
                     }
                 ], 
                 "entities": [
@@ -493,13 +593,23 @@ RESPOSTA DO SISTEMA:
                 "attributes": [
                     {
                         "isDomain": "false", 
-                        "name": "clima", 
+                        "name": "Estabelecimento", 
                         "type": "string"
                     }, 
                     {
                         "isDomain": "false", 
-                        "name": "perfil", 
+                        "name": "Cidade", 
                         "type": "string"
+                    }, 
+                    {
+                        "isDomain": "false", 
+                        "name": "Descrição", 
+                        "type": "string"
+                    }, 
+                    {
+                        "isDomain": "false", 
+                        "name": "Valor", 
+                        "type": "float"
                     }
                 ], 
                 "entities": [
@@ -527,7 +637,7 @@ ASSINATURA DE DISPONIBILIDADE DE CONTEXTO:
         }
     ],
     "attributes": [
-        "clima"
+        "Estabelecimento"
     ],
     "reference": "http://localhost:1028/accumulate",
     "duration": "P1M"
