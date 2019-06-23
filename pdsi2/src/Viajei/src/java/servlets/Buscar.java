@@ -20,7 +20,8 @@ public class Buscar extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             out.println("<html>");
             out.println("<head><title>Viajei - Buscar</title></head>");
-            out.println("<body><center><form action=\"\" method=\"post\">");
+            out.println("<body><nav><a href=\".\">Início</a> <a href=\"#\">Buscas salvas</a> <a href=\"buscar\">Buscar</a></nav>");
+            out.println("<center><form action=\"\" method=\"post\">");
             out.println("<label for=\"data_ida\">Quando você pretende sair?</label></br>");
             out.println("<input type=\"date\" name=\"data_ida\" id=\"data_ida\" required/></br></br>");
             out.println("<label for=\"data_volta\">Quando você pretende voltar?</label></br>");
@@ -53,7 +54,8 @@ public class Buscar extends HttpServlet {
             Preferencias p = Persistencia.getPreferencias(uid);
             out.println("<html>");
             out.println("<head><title>Viajei - Buscar</title></head>");
-            out.println("<body><center><form action=\"resultados\" method=\"post\">");
+            out.println("<body><nav><a href=\".\">Início</a> <a href=\"#\">Buscas salvas</a> <a href=\"buscar\">Buscar</a></nav>");
+            out.println("<center><form action=\"resultados\" method=\"post\">");
             out.println("<legend>Selecione suas preferências</legend></br>");
             out.println("<input type=\"checkbox\" id=\"pref_clima\" name=\"pref_clima\" value=\""+p.getClima()+"\"/><label for=\"pref_clima\">Clima ideal: " + p.getClima() + "</label></br></br>");
             out.println("<input type=\"checkbox\" id=\"pref_transporte\" name=\"pref_transporte\" value=\""+p.getTransporte()+"\"/><label for=\"pref_transporte\">Transporte: " + p.getTransporte() + "</label></br></br>");

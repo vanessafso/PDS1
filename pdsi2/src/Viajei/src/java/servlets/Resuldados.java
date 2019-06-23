@@ -25,8 +25,9 @@ public class Resuldados extends HttpServlet {
                 out.close();
             }
             out.println("<html>");
-            out.println("<head><title>Viajei - Destinos</title></head><body>");
-
+            out.println("<head><title>Viajei - Destinos</title></head>");
+            out.println("<body><nav><a href=\".\">Início</a> <a href=\"#\">Buscas salvas</a> <a href=\"buscar\">Buscar</a></nav>");
+            
             Date data_ida = Date.valueOf(request.getParameter("data_ida")), data_volta = Date.valueOf(request.getParameter("data_volta"));
             float valor = Float.valueOf(request.getParameter("valor"));
             Busca b = new Busca(data_ida, data_volta, valor);
@@ -61,7 +62,6 @@ public class Resuldados extends HttpServlet {
             out.println("</body></html>");
         } catch (Exception e) {
             Logger.getLogger(Buscar.class.getName()).log(Level.SEVERE, null, e);
-            response.sendError(500);
         }
     }
 }
