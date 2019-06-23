@@ -14,8 +14,9 @@ public class Persistencia {
     public static List busca(Busca busca, Preferencias preferencias) throws SQLException {
         con = Conexao.getConexao();
         List<Destino> destinos = new ArrayList();
-        PreparedStatement buscaStr = con.prepareStatement("SELECT * FROM destino WHERE valor <= ?;");
+        PreparedStatement buscaStr = con.prepareStatement("SELECT * FROM destino WHERE gastos <= ? AND clima = ?;");
         buscaStr.setFloat(1, busca.getValor());
+        buscaStr.setString(2, preferencias.getClima());
         ResultSet res = buscaStr.executeQuery();
         while (res.next()) {
             destinos.add(new Destino(res.getInt(1), res.getString(2), res.getString(3), res.getString(4)));

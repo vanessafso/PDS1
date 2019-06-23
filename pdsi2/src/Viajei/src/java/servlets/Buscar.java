@@ -53,19 +53,19 @@ public class Buscar extends HttpServlet {
             Preferencias p = Persistencia.getPreferencias(uid);
             out.println("<html>");
             out.println("<head><title>Viajei - Buscar</title></head>");
-            out.println("<body><center><form action=\"../resultados\" method=\"post\">");
-            out.println("<legend>Selecione suas preferências</legend>");
-            out.println("<checkbox name=\"pref_clima\">Clima ideal: " + p.getClima() + "</checkbox>");
-            out.println("<checkbox name=\"pref_transporte\">Transporte: " + p.getTransporte() + "</checkbox>");
+            out.println("<body><center><form action=\"resultados\" method=\"post\">");
+            out.println("<legend>Selecione suas preferências</legend></br>");
+            out.println("<input type=\"checkbox\" id=\"pref_clima\" name=\"pref_clima\" value=\""+p.getClima()+"\"/><label for=\"pref_clima\">Clima ideal: " + p.getClima() + "</label></br></br>");
+            out.println("<input type=\"checkbox\" id=\"pref_transporte\" name=\"pref_transporte\" value=\""+p.getTransporte()+"\"/><label for=\"pref_transporte\">Transporte: " + p.getTransporte() + "</label></br></br>");
             String perfis[] = p.getPerfil().split(",");
             int i;
             for (i = 0; i < perfis.length; i++) {
-                out.println("<checkbox name=\"pref_perfil"+i+"\">Perfil do viajante: " + perfis[i] + "</checkbox>");
+                out.println("<input type=\"checkbox\" id=\"pref_perfil" + i + "\" name=\"pref_perfil" + i + "\" value=\""+perfis[i]+"\"/><label for=\"pref_perfil" + i + "\">Perfil do viajante: " + perfis[i] + "</label></br></br>");
             }
-            out.println("<input type=\"hidden\" value=\""+i+"\" name=\"perfis\"/>");
-            out.println("<checkbox name=\"pref_servicos\">Servicos: " + p.getServicos() + "</checkbox>");
-            out.println("<checkbox name=\"pref_alimentacao\">Alimentacao: " + p.getAlimentacao() + "</checkbox>");
-            out.println("<checkbox name=\"pref_pagamento\">Tipo de pagamento: " + p.getPagamento() + "</checkbox>");
+            out.println("<input type=\"hidden\" value=\"" + i + "\" name=\"perfis\"/>");
+            out.println("<input type=\"checkbox\" id=\"pref_servicos\" name=\"pref_servicos\" value=\""+p.getServicos()+"\"/><label for=\"pref_servicos\">Servicos: " + p.getServicos() + "</label></br></br>");
+            out.println("<input type=\"checkbox\" id=\"pref_alimentacao\" name=\"pref_alimentacao\" value=\""+p.getAlimentacao()+"\"/><label for=\"pref_alimentacao\">Alimentacao: " + p.getAlimentacao() + "</label></br></br>");
+            out.println("<input type=\"checkbox\" id=\"pref_pagamento\" name=\"pref_pagamento\" value=\""+p.getPagamento()+"\"/><label for=\"pref_pagamento\">Tipo de pagamento: " + p.getPagamento() + "</label></br></br>");
 
             out.println("<input type=\"hidden\" value=\"" + request.getParameter("data_ida") + "\" name=\"data_ida\"/>");
             out.println("<input type=\"hidden\" value=\"" + request.getParameter("data_volta") + "\" name=\"data_volta\"/>");
