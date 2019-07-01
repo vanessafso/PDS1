@@ -1,0 +1,4 @@
+mvn sonar:sonar \
+  -Dsonar.projectKey=viajei \
+  -Dsonar.host.url=http://192.168.99.16:9000 \
+  -Dsonar.login=6a37d1029b1696fb2c182157fc188688aea51398
