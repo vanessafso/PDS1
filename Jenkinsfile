@@ -31,7 +31,7 @@ pipeline{
         expression { params.valor != '-' }
       }
       steps {
-        sh 'Funcionalidade Funcionando!!'
+        echo 'Funcionalidade Funcionando!!'
       }
     }
 
