@@ -36,8 +36,10 @@ pipeline{
     }
    
      stage ('Starting Viajei Sonar job') {
-       build job: 'Viajei-Sonar'
-}
+      steps {
+       build 'Viajei-Sonar'
+      }
+      }
 
   }
 
