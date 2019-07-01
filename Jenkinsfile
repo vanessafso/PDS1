@@ -17,7 +17,7 @@ pipeline{
       }
     }
  
-    stage ('Realizando teste de Funcionalidade'){
+    stage ('Varredura do Código'){
       when{
         expression { params.valor == '-' }
       }
@@ -26,7 +26,7 @@ pipeline{
       }
     }
 
-      stage ('Realizando teste de Funcionalidade 2.0'){
+      stage ('Realizando teste de Funcionalidade'){
       when{
         expression { params.valor != '-' }
       }
