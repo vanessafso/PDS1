@@ -34,6 +34,10 @@ pipeline{
         echo 'Funcionalidade Funcionando!!'
       }
     }
+   
+     stage ('Starting Viajei Sonar job') {
+       build job: 'Viajei-Sonar'
+}
 
   }
 
